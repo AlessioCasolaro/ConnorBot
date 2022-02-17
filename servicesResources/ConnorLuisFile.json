@@ -1,0 +1,234 @@
+{
+  "luis_schema_version": "7.0.0",
+  "intents": [
+    {
+      "name": "CompletaMiscela",
+      "features": []
+    },
+    {
+      "name": "Help",
+      "features": []
+    },
+    {
+      "name": "None",
+      "features": []
+    },
+    {
+      "name": "SuggerisciMiscela",
+      "features": []
+    }
+  ],
+  "entities": [],
+  "hierarchicals": [],
+  "composites": [],
+  "closedLists": [],
+  "prebuiltEntities": [],
+  "utterances": [
+    {
+      "text": "abbandona",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "adesso cosa aggiungo?",
+      "intent": "CompletaMiscela",
+      "entities": []
+    },
+    {
+      "text": "aiutami a finire il drink",
+      "intent": "CompletaMiscela",
+      "entities": []
+    },
+    {
+      "text": "aiuto",
+      "intent": "Help",
+      "entities": []
+    },
+    {
+      "text": "annulla",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "che metto ora?",
+      "intent": "CompletaMiscela",
+      "entities": []
+    },
+    {
+      "text": "check my account balance",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "come funzioni?",
+      "intent": "Help",
+      "entities": []
+    },
+    {
+      "text": "consigli per oggi?",
+      "intent": "SuggerisciMiscela",
+      "entities": []
+    },
+    {
+      "text": "consigliami un drink",
+      "intent": "SuggerisciMiscela",
+      "entities": []
+    },
+    {
+      "text": "cosa dovrei aggiungere ora?",
+      "intent": "CompletaMiscela",
+      "entities": []
+    },
+    {
+      "text": "cosa mi consigli di bere?",
+      "intent": "SuggerisciMiscela",
+      "entities": []
+    },
+    {
+      "text": "cosa mi consigli di prendere?",
+      "intent": "SuggerisciMiscela",
+      "entities": []
+    },
+    {
+      "text": "cosa mi suggerisci oggi?",
+      "intent": "SuggerisciMiscela",
+      "entities": []
+    },
+    {
+      "text": "cosa mi suggerisci?",
+      "intent": "SuggerisciMiscela",
+      "entities": []
+    },
+    {
+      "text": "cosa potrei bere?",
+      "intent": "SuggerisciMiscela",
+      "entities": []
+    },
+    {
+      "text": "cosa puoi fare per aiutarmi?",
+      "intent": "Help",
+      "entities": []
+    },
+    {
+      "text": "cosa puoi fare?",
+      "intent": "Help",
+      "entities": []
+    },
+    {
+      "text": "do unicorns really exist",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "duck",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "esci",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "fermati adesso",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "ho bisogno di assistenza",
+      "intent": "Help",
+      "entities": []
+    },
+    {
+      "text": "i want to order a pizza",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "is it going to rain?",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "lasciamo perdere",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "mi serve aiuto",
+      "intent": "Help",
+      "entities": []
+    },
+    {
+      "text": "non so cosa bere",
+      "intent": "SuggerisciMiscela",
+      "entities": []
+    },
+    {
+      "text": "non so cosa mettere adesso",
+      "intent": "CompletaMiscela",
+      "entities": []
+    },
+    {
+      "text": "place an item on hold",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "sono bloccato",
+      "intent": "Help",
+      "entities": []
+    },
+    {
+      "text": "suggeriscimi un drink",
+      "intent": "SuggerisciMiscela",
+      "entities": []
+    },
+    {
+      "text": "suggeriscimi un ingrediente",
+      "intent": "CompletaMiscela",
+      "entities": []
+    },
+    {
+      "text": "suggeriscimi una miscela",
+      "intent": "SuggerisciMiscela",
+      "entities": []
+    },
+    {
+      "text": "termina",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "termina adesso",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "turn on the lights",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "vorrei aggiungere altro",
+      "intent": "CompletaMiscela",
+      "entities": []
+    },
+    {
+      "text": "where is my car?",
+      "intent": "None",
+      "entities": []
+    }
+  ],
+  "versionId": "ConnorLuisFile.json",
+  "name": "LuisApp",
+  "desc": "",
+  "culture": "it-it",
+  "tokenizerVersion": "1.0.0",
+  "patternAnyEntities": [],
+  "regex_entities": [],
+  "phraselists": [],
+  "regex_features": [],
+  "patterns": [],
+  "settings": []
+}
