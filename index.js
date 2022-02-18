@@ -46,7 +46,7 @@ const {
 const luisConfig = {
     applicationId: LuisAppId,
     endpointKey: LuisAPIKey,
-    endpoint: LuisAPIHostName
+    endpoint: `https://${ LuisAPIHostName }`
 };
 const luisRecognizer = new ConnorRecognizer(luisConfig);
 

@@ -28,7 +28,7 @@ class MainDialog extends ComponentDialog {
         this.qnaMaker = new QnAMaker({
             knowledgeBaseId: process.env.QnAKnowledgebaseId,
             endpointKey: process.env.QnAEndpointKey,
-            host: process.env.QnAEndpointHostName
+            host: `https://${ process.env.QnAEndpointHostName }`
         });
     }
 
