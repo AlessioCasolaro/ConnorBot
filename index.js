@@ -27,8 +27,8 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
 // Create adapter
 // Update these values with the ones taken from Azure Bot Service
 const adapter = new BotFrameworkAdapter({
-    appId: process.env.MicrosoftAppId,
-    appPassword: process.env.MicrosoftAppPassword
+    //appId: process.env.MicrosoftAppId,
+    //appPassword: process.env.MicrosoftAppPassword
 });
 
 // Create conversation and user state with in-memory storage provider
