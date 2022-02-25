@@ -17,7 +17,7 @@ class CompleteMixtureDialog extends CancelAndHelpDialog {
 
     phrases = ["Sembra già un ottimo drink, ma potresti metterci questo",
         "Prova a mettere questo ingrediente di solito piace",
-        "Potrei aggiungere questo ingrediente",
+        "Potresti aggiungere questo ingrediente",
         "Questa aggiunta potrebbe piacerti"];
 
     ingredients = ["zenzero",
@@ -93,7 +93,7 @@ class CompleteMixtureDialog extends CancelAndHelpDialog {
         var random = Math.floor(Math.random() * this.phrases.length);
         var random2 = Math.floor(Math.random() * this.ingredients.length);
 
-        const messageText = '' + this.phrases[random] + ' ' + this.ingredients[random2];
+        const messageText = this.phrases[random] + ': ' + this.ingredients[random2] + ".";
 
         return await stepContext.context.sendActivities([
             { type: 'message', text: messageText }]);

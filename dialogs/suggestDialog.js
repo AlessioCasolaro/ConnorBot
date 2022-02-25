@@ -14,10 +14,10 @@ class SuggestDialog extends CancelAndHelpDialog {
 
         this.initialDialogId = WATERFALL_DIALOG;
     }
-    phrases = ["Ti consiglio questo miscela, dovrebbe piacerti.",
-        "Assaggia questa miscela, credo ti piacerà.",
-        "Hmm, questo miscela dovrebbe andare bene.",
-        "Spero che questa miscela possa essere di tuo gradimento.",
+    phrases = ["Ti consiglio questo miscela, dovrebbe piacerti",
+        "Assaggia questa miscela, credo ti piacerà",
+        "Hmm, questa miscela dovrebbe andare bene",
+        "Spero che questa miscela possa essere di tuo gradimento",
         "Non sono sicuro, ma credo questa ti possa piacere",
         "Prova questa miscela, al momento è molto popolare"];
 
@@ -55,7 +55,7 @@ class SuggestDialog extends CancelAndHelpDialog {
         "Tisana depurativa",
         "Tisana del buongiorno",
         "Tisana buon riposo",
-        "Dresco piacere",
+        "Fresco piacere",
         "Dolce crepuscolo"];
 
     async run(turnContext, accessor) {
@@ -75,7 +75,7 @@ class SuggestDialog extends CancelAndHelpDialog {
         var random = Math.floor(Math.random() * this.phrases.length);
         var random2 = Math.floor(Math.random() * this.mixture.length);
 
-        const messageText = '' + this.phrases[random] + ' ' + this.mixture[random2];
+        const messageText = '' + this.phrases[random] + ': ' + this.mixture[random2]+".";
 
         return await stepContext.context.sendActivities([
             { type: 'message', text: messageText }]);

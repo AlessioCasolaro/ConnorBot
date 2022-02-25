@@ -28,7 +28,7 @@ class MainDialog extends ComponentDialog {
         this.qnaMaker = new QnAMaker({
             knowledgeBaseId: process.env.QnAKnowledgebaseId,
             endpointKey: process.env.QnAEndpointKey,
-            host: `https://${ process.env.QnAEndpointHostName }`
+            host: `https://${process.env.QnAEndpointHostName}`
         });
     }
 
@@ -43,7 +43,7 @@ class MainDialog extends ComponentDialog {
         }
     }
 
-     // First step in the waterfall dialog. 
+    // First step in the waterfall dialog. 
     async introStep(stepContext) {
         if (!this.luisRecognizer.isConfigured) {
             const messageText = 'NOTE: LUIS is not configured. To enable all capabilities, add `LuisAppId`, `LuisAPIKey` and `LuisAPIHostName` to the .env file.';
@@ -56,7 +56,7 @@ class MainDialog extends ComponentDialog {
         return await stepContext.prompt('TextPrompt', { prompt: promptMessage });
     }
 
-     // Second step in the waterfall.
+    // Second step in the waterfall.
     async actStep(stepContext) {
 
         if (!this.luisRecognizer.isConfigured) {
@@ -88,8 +88,11 @@ class MainDialog extends ComponentDialog {
                     if (qnaResults[0]) {
                         await stepContext.context.sendActivity(qnaResults[0].answer);
                         return await stepContext.next();
-                    } else
+                    } else {
+                        const didntUnderstandMessageText = `Non ho capito, prova a chiederlo diversamente`;
+                        await stepContext.context.sendActivity(didntUnderstandMessageText);
                         return await stepContext.next();
+                    }
                 }
             }
             case 'None': {
@@ -104,9 +107,13 @@ class MainDialog extends ComponentDialog {
                     if (qnaResults[0]) {
                         await stepContext.context.sendActivity(qnaResults[0].answer);
                         return await stepContext.next();
-                    } else
+                    } else {
+                        const didntUnderstandMessageText = `Non ho capito, prova a chiederlo diversamente`;
+                        await stepContext.context.sendActivity(didntUnderstandMessageText);
                         return await stepContext.next();
+                    }
                 }
+
             }
             default: {
                 // Catch all for unhandled intents
