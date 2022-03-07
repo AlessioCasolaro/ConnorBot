@@ -1,7 +1,14 @@
 const { WaterfallDialog } = require('botbuilder-dialogs');
 const { CancelAndHelpDialog } = require('./cancelAndHelpDialog.js');
-
+const Extra = require('../models/extra');
 const WATERFALL_DIALOG = 'waterfallDialog';
+
+var ingredients = [];
+Extra.find((err, result)=>{
+    result.forEach(function(result){   
+        ingredients.push((result.extraName.toString()));
+    });
+});
 
 class CompleteMixtureDialog extends CancelAndHelpDialog {
     constructor() {
@@ -20,64 +27,6 @@ class CompleteMixtureDialog extends CancelAndHelpDialog {
         "Potresti aggiungere questo ingrediente",
         "Questa aggiunta potrebbe piacerti"];
 
-    ingredients = ["zenzero",
-        "cardamomo",
-        "coriandolo",
-        "curcuma radice",
-        "chiodi di garofano",
-        "noce moscata",
-        "mela",
-        "cannella bastoncini",
-        "ibisco",
-        "foglie di mora",
-        "melissa",
-        "liquirizia",
-        "arancia scorza",
-        "finocchio",
-        "camomilla",
-        "pepe nero",
-        "cardamomo",
-        "iperico",
-        "fiori di luppolo",
-        "menta verde",
-        "pepe rosa",
-        "anice",
-        "fiordaliso",
-        "coriandolo macinato",
-        "curcuma radice a pezzi",
-        "zenzero pezzi",
-        "cacao",
-        "cannella pezzi",
-        "mela in pezzi",
-        "rosa canina scorza",
-        "rooibos",
-        "mandorla in giocchi",
-        "mandorla in pezzi",
-        "vaniglia bourbon pezzi",
-        "cardamomo verde",
-        "angelica radice",
-        "tarassaco radice",
-        "pepe",
-        "bacche di ginepro",
-        "verbena",
-        "melissa",
-        "aroma di arancia",
-        "erba tulsi",
-        "calendula",
-        "olio di mandorla",
-        "olio di mandarino",
-        "luppolo fiori",
-        "alchemilla",
-        "valeriana",
-        "santoreggia",
-        "ortica foglie",
-        "menta piperita",
-        "cintronella",
-        "rosa e malva fiori",
-        "fragola in pezzi",
-        "aroma naturale di pompelmo"];
-
-
     async run(turnContext, accessor) {
         const dialogSet = new dialogSet(accessor);
         dialogSet.add(this);
@@ -91,9 +40,9 @@ class CompleteMixtureDialog extends CancelAndHelpDialog {
     async suggestStep(stepContext) {
 
         var random = Math.floor(Math.random() * this.phrases.length);
-        var random2 = Math.floor(Math.random() * this.ingredients.length);
+        var random2 = Math.floor(Math.random() * ingredients.length);
 
-        const messageText = this.phrases[random] + ': ' + this.ingredients[random2] + ".";
+        const messageText = this.phrases[random] + ': ' + ingredients[random2] + ".";
 
         return await stepContext.context.sendActivities([
             { type: 'message', text: messageText }]);

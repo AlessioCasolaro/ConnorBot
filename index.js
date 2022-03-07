@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 // Read environment variables from .env file
 const path = require('path');
 const ENV_FILE = path.join(__dirname, '.env');
@@ -18,6 +20,8 @@ const { MainDialog } = require('./dialogs/mainDialog');
 const { ConnorRecognizer } = require('./cognitiveModels/ConnorRecognizer');
 
 
+mongoose.connect(process.env.URI,{ useNewUrlParser: true }, err => err?console.log(err):console.log('Successfully connected to MongoDB'));
+
 // Create HTTP server
 const server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
@@ -27,8 +31,8 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
 // Create adapter
 // Update these values with the ones taken from Azure Bot Service
 const adapter = new BotFrameworkAdapter({
-    appId: process.env.MicrosoftAppId,
-    appPassword: process.env.MicrosoftAppPassword
+    // appId: process.env.MicrosoftAppId,
+    // appPassword: process.env.MicrosoftAppPassword
 });
 
 // Create conversation and user state with in-memory storage provider
