@@ -1,3 +1,4 @@
+const {TextDecoder, TextEncoder} = require("util");
 const mongoose = require('mongoose');
 
 // Read environment variables from .env file
@@ -31,14 +32,13 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
 // Create adapter
 // Update these values with the ones taken from Azure Bot Service
 const adapter = new BotFrameworkAdapter({
-    // appId: process.env.MicrosoftAppId,
-    // appPassword: process.env.MicrosoftAppPassword
+    appId: process.env.MicrosoftAppId,
+    appPassword: process.env.MicrosoftAppPassword
 });
 
 // Create conversation and user state with in-memory storage provider
 const memoryStorage = new MemoryStorage();
 const conversationState = new ConversationState(memoryStorage);
-const userState = new UserState(memoryStorage);
 
 // Create LUIS Recognizer
 // Update these values with the ones taken from Azure LUIS
