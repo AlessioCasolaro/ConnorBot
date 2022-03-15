@@ -1,6 +1,6 @@
 const { WaterfallDialog } = require('botbuilder-dialogs');
 const { CancelAndHelpDialog } = require('./cancelAndHelpDialog.js');
-const Product = require('../models/data');
+const Product = require('../models/products');
 const WATERFALL_DIALOG = 'waterfallDialog';
 
 var mixture = [];
