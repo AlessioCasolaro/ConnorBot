@@ -4,6 +4,11 @@ const Extra = require('../models/extra');
 const WATERFALL_DIALOG = 'waterfallDialog';
 
 var ingredients = [];
+var phrases = ["Sembra già un ottimo drink, ma potresti metterci questo",
+"Prova a mettere questo ingrediente di solito piace",
+"Potresti aggiungere questo ingrediente",
+"Questa aggiunta potrebbe piacerti"];
+
 Extra.find((err, result)=>{
     result.forEach(function(result){   
         ingredients.push((result.extraName.toString()));
@@ -22,10 +27,7 @@ class CompleteMixtureDialog extends CancelAndHelpDialog {
         this.initialDialogId = WATERFALL_DIALOG;
     }
 
-    phrases = ["Sembra già un ottimo drink, ma potresti metterci questo",
-        "Prova a mettere questo ingrediente di solito piace",
-        "Potresti aggiungere questo ingrediente",
-        "Questa aggiunta potrebbe piacerti"];
+    
 
     async run(turnContext, accessor) {
         const dialogSet = new dialogSet(accessor);
@@ -39,10 +41,10 @@ class CompleteMixtureDialog extends CancelAndHelpDialog {
     }
     async suggestStep(stepContext) {
 
-        var random = Math.floor(Math.random() * this.phrases.length);
+        var random = Math.floor(Math.random() * phrases.length);
         var random2 = Math.floor(Math.random() * ingredients.length);
 
-        const messageText = this.phrases[random] + ': ' + ingredients[random2] + ".";
+        const messageText = phrases[random] + ': ' + ingredients[random2] + ".";
 
         return await stepContext.context.sendActivities([
             { type: 'message', text: messageText }]);

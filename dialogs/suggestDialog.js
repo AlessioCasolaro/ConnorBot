@@ -4,6 +4,13 @@ const Product = require('../models/data');
 const WATERFALL_DIALOG = 'waterfallDialog';
 
 var mixture = [];
+var phrases = ["Ti consiglio questo miscela, dovrebbe piacerti",
+"Assaggia questa miscela, credo ti piacerà",
+"Hmm, questa miscela dovrebbe andare bene",
+"Spero che questa miscela possa essere di tuo gradimento",
+"Non sono sicuro, ma credo questa ti possa piacere",
+"Prova questa miscela, al momento è molto popolare"];
+
 Product.find((err, result)=>{
     result.forEach(function(result){   
         mixture.push((result.title.toString()));
@@ -23,12 +30,7 @@ class SuggestDialog extends CancelAndHelpDialog {
         this.initialDialogId = WATERFALL_DIALOG;
     }
     
-    phrases = ["Ti consiglio questo miscela, dovrebbe piacerti",
-        "Assaggia questa miscela, credo ti piacerà",
-        "Hmm, questa miscela dovrebbe andare bene",
-        "Spero che questa miscela possa essere di tuo gradimento",
-        "Non sono sicuro, ma credo questa ti possa piacere",
-        "Prova questa miscela, al momento è molto popolare"];
+    
 
     async run(turnContext, accessor) {
 
@@ -44,10 +46,10 @@ class SuggestDialog extends CancelAndHelpDialog {
 
     async suggestStep(stepContext) {
 
-        var random = Math.floor(Math.random() * this.phrases.length);
+        var random = Math.floor(Math.random() * phrases.length);
         var random2 = Math.floor(Math.random() * mixture.length);
 
-        const messageText = '' + this.phrases[random] + ': ' + mixture[random2]+".";
+        const messageText = '' + phrases[random] + ': ' + mixture[random2]+".";
 
         return await stepContext.context.sendActivities([
             { type: 'message', text: messageText }]);
